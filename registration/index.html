@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Registration - Gropay Docs</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Registration";
+        var mkdocs_page_input_path = "registration.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Gropay Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Registration</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#endpoint">Endpoint</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#request-body">Request Body</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#sample-request">Sample Request</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#response">Response</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#success-response">Success Response</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#error-responses">Error Responses</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Gropay Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Registration</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="user-registration-api">User Registration API</h1>
+<h2 id="overview">Overview</h2>
+<p>This API endpoint allows users to register by providing their personal details, contact information, and role.</p>
+<h2 id="endpoint">Endpoint</h2>
+<p><strong>URL:</strong> <code>/api/v1/user/registration</code><br />
+<strong>Method:</strong> <code>POST</code><br />
+<strong>Content-Type:</strong> <code>application/json</code><br />
+<strong>Authentication:</strong> Not required for registration  </p>
+<h2 id="request-body">Request Body</h2>
+<p>The request must be in JSON format with the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>firstName</code></td>
+<td><code>string</code></td>
+<td>✅ Yes</td>
+<td>User's first name</td>
+</tr>
+<tr>
+<td><code>middleName</code></td>
+<td><code>string</code></td>
+<td>❌ No</td>
+<td>User's middle name (optional)</td>
+</tr>
+<tr>
+<td><code>lastName</code></td>
+<td><code>string</code></td>
+<td>✅ Yes</td>
+<td>User's last name</td>
+</tr>
+<tr>
+<td><code>gender</code></td>
+<td><code>string</code></td>
+<td>✅ Yes</td>
+<td>User's gender (e.g., Male, Female)</td>
+</tr>
+<tr>
+<td><code>phone</code></td>
+<td><code>string</code></td>
+<td>✅ Yes</td>
+<td>User's phone number (e.g., 2345762296334)</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td><code>string</code></td>
+<td>✅ Yes</td>
+<td>User's email address</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td><code>string</code></td>
+<td>✅ Yes</td>
+<td>User's password (must meet security requirements)</td>
+</tr>
+<tr>
+<td><code>bvn</code></td>
+<td><code>string</code></td>
+<td>❌ No</td>
+<td>User's Bank Verification Number (optional)</td>
+</tr>
+<tr>
+<td><code>permissions</code></td>
+<td><code>array&lt;string&gt;</code></td>
+<td>✅ Yes</td>
+<td>List of permissions assigned to the user</td>
+</tr>
+<tr>
+<td><code>superAgentId</code></td>
+<td><code>integer</code></td>
+<td>❌ No</td>
+<td>ID of the super agent, if applicable</td>
+</tr>
+<tr>
+<td><code>role</code></td>
+<td><code>string</code></td>
+<td>✅ Yes</td>
+<td>User's role (e.g., <code>"USER"</code>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sample-request">Sample Request</h3>
+<pre><code class="language-json">{
+  &quot;firstName&quot;: &quot;John&quot;,
+  &quot;middleName&quot;: &quot;Doe&quot;,
+  &quot;lastName&quot;: &quot;Smith&quot;,
+  &quot;gender&quot;: &quot;Male&quot;,
+  &quot;phone&quot;: &quot;2345762296334&quot;,
+  &quot;email&quot;: &quot;john@example.com&quot;,
+  &quot;password&quot;: &quot;SecurePass123!&quot;,
+  &quot;bvn&quot;: &quot;12345678901&quot;,
+  &quot;permissions&quot;: [
+    &quot;PERMISSION_ACCOUNT_CREATE&quot;
+  ],
+  &quot;superAgentId&quot;: 10,
+  &quot;role&quot;: &quot;USER&quot;
+}
+</code></pre>
+<h2 id="response">Response</h2>
+<p>The API returns a JSON response indicating the success or failure of the registration.</p>
+<h3 id="success-response">Success Response</h3>
+<p><strong>Status Code:</strong> <code>201 Created</code></p>
+<pre><code class="language-json">{
+  &quot;step&quot;: &quot;STEP_1&quot;,
+  &quot;nextStep&quot;: &quot;STEP_1&quot;,
+  &quot;userId&quot;: 0,
+  &quot;email&quot;: &quot;string&quot;,
+  &quot;fullName&quot;: &quot;string&quot;,
+  &quot;createdDate&quot;: &quot;string&quot;,
+  &quot;updatedDate&quot;: &quot;string&quot;,
+  &quot;role&quot;: &quot;string&quot;,
+  &quot;message&quot;: &quot;string&quot;
+}
+</code></pre>
+<h3 id="error-responses">Error Responses</h3>
+<table>
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Error Message</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>400 Bad Request</code></td>
+<td><code>Invalid input</code></td>
+<td>Some required fields are missing or incorrectly formatted</td>
+</tr>
+<tr>
+<td><code>409 Conflict</code></td>
+<td><code>User already exists</code></td>
+<td>The email or phone number is already in use</td>
+</tr>
+<tr>
+<td><code>500 Internal Server Error</code></td>
+<td><code>Server error</code></td>
+<td>An unexpected error occurred</td>
+</tr>
+</tbody>
+</table>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Ensure that the email and phone number are unique.</li>
+<li>Password should be strong and follow security best practices.</li>
+<li>If <code>superAgentId</code> is provided, it must be a valid reference.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
